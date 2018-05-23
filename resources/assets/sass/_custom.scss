@@ -1,0 +1,109 @@
+//Pantone c.12
+
+//pantone process blue c
+$color-primary:#0085CA;
+
+/*
+|--------------------------------------------------------------------------
+| Table CSS 
+|--------------------------------------------------------------------------
+|
+|
+*/
+	$table-head:#0085CA;
+	$table-head-color:#ffffff;
+	$table-row-counter: rgb(37, 37, 37);
+/*
+|--------------------------------------------------------------------------
+|  Navigation CSS
+|--------------------------------------------------------------------------
+|
+|
+*/
+	.top-nav {
+		background-color: rgb(255, 255, 255);
+		color:#ffffff;
+		$brand-primary: rgb(255, 0, 0);
+		margin-bottom:0px !important;
+	};
+
+	.top-nav li>a{
+			color: #636b6f;
+	}
+
+	.min-navbar {
+		background-color: rgba(255, 255, 255, 0);
+		color:#636b6f;
+		$brand-primary: rgb(255, 0, 0);
+		height: 36px;
+	};
+
+	.min-navbar .navbar-nav > li > a {
+		padding-top:5px !important; padding-bottom:5px !important;
+		color: #636b6f
+	}
+	.navbar {min-height:20px !important}
+
+
+	#navbar > ul > li.active > a{
+		background-color:#eeeeee;
+	}
+
+//-----------------------Sidebar--------------------//
+    
+	.sidebar-heading{
+		font-weight: bold;  
+	}
+	//indent subcontentent of sidebar
+	.sidebar-subcontent{
+		margin-left: 10px;
+	}
+
+//------------------content----------------------//
+
+    //project
+	#content-project {
+		.navbar-inverse {
+			background-color: rgb(255, 255, 255);
+			border-color: #e6e6e6;
+		}
+	}
+	#content-project > nav > div > form{
+		padding-left:0px;
+	}
+	#content-project > nav{
+		margin-bottom: 0px;
+	}
+	.project-item{
+		background: #ffffff;
+		padding: 2em;
+	}
+	#content-project > hr{
+		margin: 0px;
+	}
+	.project-item-title{
+		display: inline-flex;
+		vertical-align: middle;
+	}
+	.project-item-icon{
+		color:#0891e7;
+	}
+
+
+//------------------Admin----------------------//
+
+table{
+	thead{
+		th{
+			vertical-align: top;
+		}
+		th:last-child{
+			width:130px;
+			min-width: 123px !important;
+			max-width: 125px !important;
+			vertical-align: top;
+		}
+	}
+}
+
+
