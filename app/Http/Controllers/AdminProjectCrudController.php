@@ -3,21 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Project;
 
-use App\Tag;
-
-class AdminTagCrudController extends Controller
+class AdminProjectCrudController extends Controller
 {
     //
     public function index(Request $request){
         //Recive Data
         $search = $request->get('search');
         $sort = $request->get('sort') != '' ? $request->get('sort') : 'asc';
-        $field = $request->get('field') != '' ? $request->get('field') : 'name';
+        $field = $request->get('field') != '' ? $request->get('field') : 'title';
         //new istance of tag model    
-        $tags = new Tag();
-        $tags = $tags->orderBy($field, $sort)->where('name', 'like', '%' . $search . '%')->paginate(5)->withPath('$search='.$search.'$sort='.$sort);
-        return view('admin_tags', compact('tags'));
+        $projects = new Project();
+        $projects = $projects->orderBy($field, $sort)->where('title', 'like', '%' . $search . '%')->paginate(5)->withPath('$search='.$search.'$sort='.$sort);
+        return view('admin_projects', compact('projects'));
     }
 
     public function update(Request $request, $id)
@@ -47,7 +46,7 @@ class AdminTagCrudController extends Controller
     public function create(Request $request)
     {
         if ($request->isMethod('get'))
-            return view('admin_tags_form');
+            return view('admin_projects_form');
         else {
             $rules = [
                 'name' => 'required',

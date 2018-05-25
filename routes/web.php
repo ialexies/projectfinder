@@ -27,6 +27,15 @@ use App\Projecttag;
 |
 */
 
+Route::get('/project/{id}/tag', function ($id) {
+  $projects = Project::find($id);
+  $projects->tags;
+  foreach($projects->tags as $tag){
+    echo $tag->name;
+  }
+});
+
+
   ///////////  Client Side  ////////////////
 
     Route::get('/test', function (){
@@ -167,12 +176,22 @@ Route::group(['prefix' => '/admin/categories'], function () {
   Route::delete('delete/{id}', 'AdminCategoryCrudController@delete');
 });
 
+
 Route::group(['prefix' => '/admin/companies'], function () {
   Route::get('/', 'AdminCompanyCrudController@index');
   Route::match(['get', 'post'], 'create', 'AdminCompanyCrudController@create');
   Route::match(['get', 'put'], 'update/{id}', 'AdminCompanyCrudController@update');
-  Route::delete('delete/{id}', 'AdminCompanyCrudController@delete');
+  Route::delete('delete/{id}', 'AAdminCompanyCrudController@delete');
 });
+
+Route::group(['prefix' => '/admin/projects'], function () {
+  Route::get('/', 'AdminProjectCrudController@index');
+  Route::match(['get', 'post'], 'create', 'AdminProjectCrudController@create');
+  Route::match(['get', 'put'], 'update/{id}', 'AdminProjectCrudController@update');
+  Route::delete('delete/{id}', 'AdminProjectCrudController@delete');
+});
+
+
 
 
 

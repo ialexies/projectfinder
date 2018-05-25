@@ -16,7 +16,7 @@ $factory->define(App\Project::class, function (Faker $faker) {
     
     return [
         //
-        'title'=>$faker->sentence(),
+        'title'=>$faker->name(),
         'description'=>$faker->paragraphs(rand(2,10),true),
         'budget'=>$faker->randomNumber($max = 8),
         'category_id'=>$faker->randomElement($categories),

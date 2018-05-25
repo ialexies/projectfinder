@@ -13,7 +13,7 @@ class CreateProjectTagsTablePivot extends Migration
      */
     public function up()
     {
-        Schema::create('projecttags', function (Blueprint $table) {
+        Schema::create('project_tag', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id');
             $table->integer('tag_id');

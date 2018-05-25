@@ -11,6 +11,10 @@
     <script src="/js/app.js"></script>
 </head>
 <body>
+
+  
+
+
   @include('inc.admin_navbar')
   
   <div class="container">
@@ -20,7 +24,7 @@
     <div class="row">
 
       @include('inc.messages')
-        <div class="col-md4 col-lg-4">
+        <div class="col-md-2 col-lg-2">
           @include('inc.admin_sidebar')
         </div>
 
@@ -32,7 +36,7 @@
 
       </div> -->
 
-      <div class="col-md-8 col-lg-8">
+      <div class="col-md-10 col-lg-10">
         @yield('content')
       </div>
 
