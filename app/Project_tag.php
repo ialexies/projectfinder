@@ -8,4 +8,8 @@ class Project_tag extends Model
 {
     //
     protected $table = 'project_tag';
+
+    protected $fillable = [
+        'project_id', 'tag_id'
+    ];
 }

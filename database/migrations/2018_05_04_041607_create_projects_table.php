@@ -19,13 +19,14 @@ class CreateProjectsTable extends Migration
             $table->text('description');
             $table->string('budget');
             $table->string('category_id');
-            $table->string('tag_id');
+            $table->string('tag_id')->nullable();
             $table->string('user_id');
             $table->string('company_id');
             $table->timestamps();
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *
