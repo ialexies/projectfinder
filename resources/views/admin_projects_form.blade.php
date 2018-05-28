@@ -15,7 +15,7 @@
                 {!! Form::label("lbl_title","Title",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
                     {!! Form::text("title",null,["class"=>"form-control".($errors->has('title')?" is-invalid":""),"autofocus",'placeholder'=>'Title']) !!}
-                    {!! $errors->first('title','<span class="invalid-feedback">:message</span>') !!}
+                    {!! $errors->first('title','<span class="invalid-feedback">:title</span>') !!}
                 </div>
             </div>
 
@@ -70,10 +70,21 @@
           <div class="form-group row required">
                 {!! Form::label("lbl_tags","Tags Options",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
-                    {!! Form::text("tags", App\company::pluck('name'),["class"=>"form-control".($errors->has('tags')?" is-invalid":""),'placeholder'=>'Tags']) !!}
-                    {!! $errors->first('tags','<span class="invalid-feedback">:message</span>') !!}
-                </div>
+                @php 
+                $tag_options = App\Tag::all();
+
+                    foreach($tag_options as $tag_option){
+                    echo  "<button onclick='alert()' type='button' id='".$tag_option->id."'>".$tag_option->name."</button>";                    
+                    }
+
+                @endphp
+            </div>
+  
           </div>
+
+
+
+      
 
           <div class="form-group row required">
                 {!! Form::label("",null,["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
