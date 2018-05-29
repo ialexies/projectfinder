@@ -14,20 +14,15 @@
             <div class="form-group row required">
                 {!! Form::label("lbl_title","Title",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
-<<<<<<< HEAD
                     {!! Form::text("title",null,["class"=>"form-control".($errors->has('title')?" is-invalid":""),"autofocus",'placeholder'=>'Title']) !!}
-                    {!! $errors->first('title','<span class="invalid-feedback">:title</span>') !!}
-=======
-                    {!! Form::text("title",null,["class"=>"form-control".($errors->has('title')?" is-invalid":""),"autofocus",'placeholder'=>'Title', "required"]) !!}
                     {!! $errors->first('title','<span class="invalid-feedback">:message</span>') !!}
->>>>>>> alex-branch
                 </div>
             </div>
 
             <div class="form-group row required">
                 {!! Form::label("lbl_description","Description",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
-                    {!! Form::textarea("description",null,["class"=>"form-control".($errors->has('description')?" is-invalid":""),'placeholder'=>'Description', "required"]) !!}
+                    {!! Form::textarea("description",null,["class"=>"form-control".($errors->has('description')?" is-invalid":""),'placeholder'=>'Description']) !!}
                     {!! $errors->first('description','<span class="invalid-feedback">:message</span>') !!}
                 </div>
             </div>
@@ -37,7 +32,7 @@
                 <div class="col-md-8">
                 <div class="input-group">
                   <span class="input-group-addon">Php</span>
-                    {!! Form::number("budget",100,["class"=>"form-control".($errors->has('budget')?" is-invalid":""),'placeholder'=>'Budget', "required"]) !!}
+                    {!! Form::number("budget",100,["class"=>"form-control".($errors->has('budget')?" is-invalid":""),'placeholder'=>'Budget']) !!}
                     {!! $errors->first('budget','<span class="invalid-feedback">:message</span>') !!}
                 </div>
                 </div>
@@ -47,7 +42,7 @@
                 {!! Form::label("lbl_category","Category",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
         
-                    {!!Form::select('category',  App\Category::pluck('name', 'id'), 'S', ["class"=>"form-control".($errors->has('cagetory')?" is-invalid":""),'placeholder'=>'Category', "required"] ); !!}
+                    {!!Form::select('category',  App\Category::pluck('name', 'id'), 'S', ["class"=>"form-control".($errors->has('cagetory')?" is-invalid":""),'placeholder'=>'Category'] ); !!}
                     {!! $errors->first('category','<span class="invalid-feedback">:message</span>') !!}
                 </div>
             </div>
@@ -58,7 +53,7 @@
             @endphp
                 {!! Form::label("lbl_user","User",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
-                    {!!Form::text("user",$current_user,["class"=>"form-control".($errors->has('user')?" is-invalid":""),'placeholder'=>'User', "required"]) !!}
+                    {!!Form::text("user",$current_user,["class"=>"form-control".($errors->has('user')?" is-invalid":""),'placeholder'=>'User']) !!}
                     {!! $errors->first('user','<span class="invalid-feedback">:message</span>') !!}
                 </div>
           </div>
@@ -67,49 +62,29 @@
           <div class="form-group row required">
           {!! Form::label("lbl_company","Company",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
           <div class="col-md-8">
-          {!!Form::select('company',  App\company::pluck('name', 'id'), 'S', ["class"=>"form-control".($errors->has('tags')?" is-invalid":""),'placeholder'=>'Company', "required"] ); !!}
+          {!!Form::select('company',  App\company::pluck('name', 'id'), 'S', ["class"=>"form-control".($errors->has('tags')?" is-invalid":""),'placeholder'=>'Company'] ); !!}
    
             </div>
           </div>
 
-
           <div class="form-group row required">
                 {!! Form::label("lbl_tags","Tags Options",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
-<<<<<<< HEAD
-                @php 
-                $tag_options = App\Tag::all();
-
-                    foreach($tag_options as $tag_option){
-                    echo  "<button onclick='alert()' type='button' id='".$tag_option->id."'>".$tag_option->name."</button>";                    
-                    }
-
-                @endphp
-            </div>
-  
+                    {!! Form::text("tags", App\company::pluck('name'),["class"=>"form-control".($errors->has('tags')?" is-invalid":""),'placeholder'=>'Tags']) !!}
+                    {!! $errors->first('tags','<span class="invalid-feedback">:message</span>') !!}
+                </div>
           </div>
-
-
-
-      
 
           <div class="form-group row required">
                 {!! Form::label("",null,["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
                     {!! Form::textarea("tags",null,["class"=>"form-control".($errors->has('tags')?" is-invalid":""),'placeholder'=>'Tags','style'=>'max-height: 80px;']) !!}
-=======
-               
-                @foreach (App\Tag::all() as $tag_list)
-                   <button onclick="alert(this.id)" type="button" class="btn btn-info btn-sm" id="{{ $tag_list->name }}">{{ $tag_list->name }}</button>
-                @endforeach
-
-                <br><br>
-                <div class="well"></div>
->>>>>>> alex-branch
                     {!! $errors->first('tags','<span class="invalid-feedback">:message</span>') !!}
                 </div>
           </div>
 
+          
+          
           <div class="form-group row">
               <div class="col-md-3 col-lg-2"></div>
               <div class="col-md-4">
