@@ -195,3 +195,11 @@ Route::group(['prefix' => '/admin/projects'], function () {
 
 
 
+Route::get('/admin/sync', function () {
+	$user = Project::findOrFail(1);
+	$user->tags()->sync([1,2,3]); 
+	// So it will sync the data from role to the user with an array that. For example
+	// you have a user id that has multiple roles id of 1,2,4,5 
+	// It will enter all the the data to the role_user with different types, if there is any 
+	// data that entered with the following user id but not in the value of the sync array, it will be deleted. 
+});

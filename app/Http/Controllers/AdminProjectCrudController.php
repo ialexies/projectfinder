@@ -52,6 +52,7 @@ class AdminProjectCrudController extends Controller
         //Save first the project with the current id for pivot table
         //Create a foreach loop to save each tag in the pivot table with same project id
 
+        //Bobo ka, gamitin mo na bago mo natutunan sa attach and detach para modify ung entry sa role_user LOL 
 
         if ($request->isMethod('get'))
             return view('admin_projects_form');
@@ -60,6 +61,7 @@ class AdminProjectCrudController extends Controller
                 'title' => 'required',
             ];
             $this->validate($request, $rules);
+
             $project = new Project();
             $project->title = $request->title;
             $project->description =$request->description;
@@ -78,14 +80,18 @@ class AdminProjectCrudController extends Controller
             //Sample array data of tag 
             $tag_arrays=[1,2,3,8];
             
-
-            echo $project->id;
-            foreach ($tag_arrays as $tag_array ){
-                $project_tag = new Project_tag();
-                $project_tag->project_id = $project_id;
-                $project_tag->tag_id= $tag_array;
-                $project_tag->save();
-            }
+            //adding entry through manual eloquent and looping, not a good solution
+            // echo $project->id;
+            // foreach ($tag_arrays as $tag_array ){
+            //     $project_tag = new Project_tag();
+            //     $project_tag->project_id = $project_id;
+            //     $project_tag->tag_id= $tag_array;
+            //     $project_tag->save();
+            // }
+            
+            //Adding Tag using eloquent in Pivot
+            $ta_lists = Project::findOrFail($project_id );
+            $ta_lists->tags()->sync($tag_arrays); 
 
             return redirect('/admin/projects');
 

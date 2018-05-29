@@ -88,13 +88,25 @@ class ControllerProject extends Controller
     {
         //
     }
-    public function showall()
+    public function showall(Request $request)
     {
         //
         $categories= category::all();
-        $projects= Project::all();
+
+
+        $search = $request->get('search');
+        $sort = $request->get('sort') != '' ? $request->get('sort') : 'asc';
+        $field = $request->get('field') != '' ? $request->get('field') : 'title';
+
+        $projects = new Project();
+        $projects =$projects->orderBy($field, $sort)->where('title', 'like', '%' . $search . '%')->paginate(4)->withPath('$search='.$search.'$sort='.$sort);
+        // $projects= Project::all();
+        
         $tags= Tag::all();
         return view('page_projects')->with('projects', $projects)->with('categories', $categories)->with('tags', $tags);
+        //return dd($projects);
+
+
     }
 
 }

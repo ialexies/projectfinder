@@ -67,6 +67,7 @@
             </div>
           </div>
 
+
           <div class="form-group row required">
                 {!! Form::label("lbl_tags","Tags Options",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
@@ -75,21 +76,12 @@
                    <button onclick="alert(this.id)" type="button" class="btn btn-info btn-sm" id="{{ $tag_list->name }}">{{ $tag_list->name }}</button>
                 @endforeach
 
+                <br><br>
                 <div class="well"></div>
                     {!! $errors->first('tags','<span class="invalid-feedback">:message</span>') !!}
                 </div>
           </div>
 
-          <div class="form-group row required">
-                {!! Form::label("",null,["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
-                <div class="col-md-8">
-                    {!! Form::textarea("tags",null,["class"=>"form-control".($errors->has('tags')?" is-invalid":""),'placeholder'=>'Tags','style'=>'max-height: 80px;', "required"]) !!}
-                    {!! $errors->first('tags','<span class="invalid-feedback">:message</span>') !!}
-                </div>
-          </div>
-
-          
-          
           <div class="form-group row">
               <div class="col-md-3 col-lg-2"></div>
               <div class="col-md-4">
