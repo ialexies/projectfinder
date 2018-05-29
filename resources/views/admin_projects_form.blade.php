@@ -1,7 +1,19 @@
-@extends('layouts/app_admin')
+
+
+
+{{-- resources/views/admin/dashboard.blade.php --}}
+
+@extends('adminlte::page')
+
+@section('title', 'Update Record')
+
+@section('content_header')
+    <h1>Projects</h1>
+@stop
 
 @section('content')
-    <div class="container">
+  
+
         <div class="col-md-8 offset-md-2">
             <h1>{{isset($projects)?'Edit':'New'}} Project</h1>
             <hr/>
@@ -14,13 +26,8 @@
             <div class="form-group row required">
                 {!! Form::label("lbl_title","Title",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
-<<<<<<< HEAD
-                    {!! Form::text("title",null,["class"=>"form-control".($errors->has('title')?" is-invalid":""),"autofocus",'placeholder'=>'Title']) !!}
-                    {!! $errors->first('title','<span class="invalid-feedback">:title</span>') !!}
-=======
                     {!! Form::text("title",null,["class"=>"form-control".($errors->has('title')?" is-invalid":""),"autofocus",'placeholder'=>'Title', "required"]) !!}
                     {!! $errors->first('title','<span class="invalid-feedback">:message</span>') !!}
->>>>>>> alex-branch
                 </div>
             </div>
 
@@ -76,28 +83,6 @@
           <div class="form-group row required">
                 {!! Form::label("lbl_tags","Tags Options",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                 <div class="col-md-8">
-<<<<<<< HEAD
-                @php 
-                $tag_options = App\Tag::all();
-
-                    foreach($tag_options as $tag_option){
-                    echo  "<button onclick='alert()' type='button' id='".$tag_option->id."'>".$tag_option->name."</button>";                    
-                    }
-
-                @endphp
-            </div>
-  
-          </div>
-
-
-
-      
-
-          <div class="form-group row required">
-                {!! Form::label("",null,["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
-                <div class="col-md-8">
-                    {!! Form::textarea("tags",null,["class"=>"form-control".($errors->has('tags')?" is-invalid":""),'placeholder'=>'Tags','style'=>'max-height: 80px;']) !!}
-=======
                
                 @foreach (App\Tag::all() as $tag_list)
                    <button onclick="alert(this.id)" type="button" class="btn btn-info btn-sm" id="{{ $tag_list->name }}">{{ $tag_list->name }}</button>
@@ -105,7 +90,6 @@
 
                 <br><br>
                 <div class="well"></div>
->>>>>>> alex-branch
                     {!! $errors->first('tags','<span class="invalid-feedback">:message</span>') !!}
                 </div>
           </div>
@@ -122,5 +106,14 @@
 
             {!! Form::close() !!}
         </div>
-    </div>
-@endsection
+  
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

@@ -1,7 +1,19 @@
-@extends('layouts/app_admin')
 
-  @section('content')
-  <div class="pull-right">
+
+
+{{-- resources/views/admin/dashboard.blade.php --}}
+
+@extends('adminlte::page')
+
+@section('title', 'Projects')
+
+@section('content_header')
+    <h1>Projects</h1>
+@stop
+
+@section('content')
+  
+<div class="pull-right">
       <a href="{{url('/admin/projects/create')}}" class="btn btn-primary">New</a>
     </div>
     {!! Form::open(['method'=>'get']) !!}
@@ -75,4 +87,13 @@
     </ul>
   </nav>
 
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
 @stop

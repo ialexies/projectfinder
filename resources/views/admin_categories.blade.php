@@ -1,10 +1,17 @@
 
+{{-- resources/views/admin/dashboard.blade.php --}}
 
+@extends('adminlte::page')
 
-@extends('layouts/app_admin')
+@section('title', 'Categories')
 
-	@section('content')
-        <div class="pull-right">
+@section('content_header')
+    <h1>Project Categories</h1>
+@stop
+
+@section('content')
+  
+<div class="pull-right">
             <a href="{{url('/admin/categories/create')}}" class="btn btn-primary">New</a>
         </div>
 
@@ -69,5 +76,13 @@
                 {{$categories->setPath('/admin/categories')->links('vendor.pagination.bootstrap-4')}}
             </ul>
         </nav>
-       
-	@stop
+  
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

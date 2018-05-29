@@ -1,7 +1,17 @@
-@extends('layouts/app_admin')
+
+{{-- resources/views/admin/dashboard.blade.php --}}
+
+@extends('adminlte::page')
+
+@section('title', 'Update Records')
+
+@section('content_header')
+    <h1>Project Categories</h1>
+@stop
 
 @section('content')
-    <div class="container">
+  
+<div class="container">
         <div class="col-md-8 offset-md-2">
             <h1>{{isset($categories)?'Edit':'New'}} Customer</h1>
             <hr/>
@@ -31,4 +41,13 @@
             {!! Form::close() !!}
         </div>
     </div>
-@endsection
+  
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
